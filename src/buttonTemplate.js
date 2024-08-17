@@ -22,7 +22,12 @@ function SetTheme() {
 }
 
 export default function buttonTemplate() {
-  const { brandData, link } = buildUrl({ email: this.email, from: this.fromDomain });
+  const buildUrlData = buildUrl({ email: this.email, from: this.fromDomain });
+  if (!buildUrlData) {
+    return '';
+  }
+
+  const { brandData, link } = buildUrlData;
 
   return html`
     ${SetTheme.call(this)}

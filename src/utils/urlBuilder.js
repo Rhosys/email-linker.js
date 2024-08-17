@@ -24,7 +24,7 @@ const emailToProvider = (email) => {
   const domain = email?.match('@') ? email.split('@')[1] : email;
   
   if (!domain) {
-    throw Error('No email provided');
+    return null;
   }
 
   if (domain.match(/(gmail|googlemail|google).com/)) {
